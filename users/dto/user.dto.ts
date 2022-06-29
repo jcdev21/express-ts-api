@@ -1,19 +1,17 @@
 export interface CreateUserDto {
-    id: string;
-    email: string;
-    password: string;
-    firstName?: string;
-    lastname?: string;
-    permissionLevel?: number;
+	email: string;
+	password: string;
+	firstName?: string;
+	lastname?: string;
+	permissionFlags?: number;
 }
 
 export interface PutUserDto {
-    id: string;
-    email: string;
-    password: string;
-    firstName: string;
-    lastname: string;
-    permissionLevel: number;
+	email: string;
+	password: string;
+	firstName: string;
+	lastname: string;
+	permissionFlags: number;
 }
 
-export interface PatchUserDto extends Partial<PutUserDto>{};
+export interface PatchUserDto extends Partial<PutUserDto> {}
