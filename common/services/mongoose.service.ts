@@ -19,7 +19,7 @@ class MongooseService {
 
 		mongoose
 			.connect(
-				'mongodb://admin:root@localhost:27017/restapits?authSource=admin'
+				`mongodb://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBHOST}:27017/${process.env.DBNAME}?authSource=admin`
 			)
 			.then(() => {
 				log('MongoDB is connected');
