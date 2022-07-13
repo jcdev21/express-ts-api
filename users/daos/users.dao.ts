@@ -2,6 +2,7 @@ import { CreateUserDto, PutUserDto, PatchUserDto } from '../dto/user.dto';
 import mongooseService from '../../common/services/mongoose.service';
 import shortid from 'shortid';
 import debug from 'debug';
+import { PermissionFlag } from '../../common/middleware/common.permissionflag.enum';
 
 const log: debug.IDebugger = debug('app:in-memory-dao');
 
@@ -31,7 +32,7 @@ class UsersDao {
 		const user = new this.User({
 			_id: userId,
 			...userFields,
-			permissionFlags: 1,
+			permissionFlags: PermissionFlag.FREE_PERMISSION,
 		});
 		await user.save();
 		return userId;
